@@ -1,0 +1,146 @@
+{% comment %}
+  Custom Landing Page Section
+  Complete control for custom HTML, CSS, and JavaScript
+  
+  BRE Wordmark:
+  Futura Condensed Medium (stroked in black)
+  Y FACTOR Wordmark:
+  Futura Bold (stroked in red)
+  GET COCKY on banner
+  DIN Condensed
+  MISC
+  Avenir
+
+  WORDMARK COLORS:
+  Orange: ff6e04
+  Red: dc200d
+  Bright red stroke for Y Factor: f20909
+  Small copy on Y-FACTOR label: Orange: e46204
+
+  ROOSTER COLORS:
+  Orange Rays: f89d1c
+  Red Rays: e54f21
+  Light Orange for circle: ffaf03
+  Rooster red: d61f27
+  BACKGROUND BLUE:
+  04204A DARK
+  O44FC4 MEDIUM
+  206CD5 LIGHT
+{% endcomment %}
+
+<section id="{{ section.id }}" class="custom-landing-page">
+  {% if section.settings.custom_html != blank %}
+    {{ section.settings.custom_html }}
+  {% else %}
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+      
+      <div class="hero-background">
+        <img src="{{ 'hero_bg_main.jpg' | asset_url }}" alt="Hero Background" width="1920" height="1080">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-heading">
+          SOMETHING <span class="hero-highlight">BIG</span> IS COMING!
+        </h1>
+      </div>
+
+    </div>
+
+    <!-- Two Column Features Section -->
+    <div class="features-section" id="features">
+      <div class="container">
+        <div class="two-column-layout">
+          
+          <!-- Left Column -->
+          <div class="column column--left">
+            <h2 class="features-heading">SIMPLY THE BEST:</h2>
+            <p class="features-description">Clinically proven to:</p>
+            <ul class="features-list">
+              <li>Increase Free and Total Testosterone</li>
+              <li>Boost Nitric Oxide levels up to 230% over baseline levels</li>
+            </ul>
+            <a href="#" class="features-button">SUBSCRIBE</a>
+            <p class="features-tagline">GIVE LOW ENERGY THE BIRD!</p>
+          </div>
+          
+          <!-- Right Column -->
+          <div class="column column--right">
+            <h2 class="features-heading">BIG IS BETTER:</h2>
+            <ul class="features-list">
+              <li>Gain lean muscle and lose body fat</li>
+              <li>Stay energized and motivated through the day</li>
+              <li>Ignite sexual vitality and drive</li>
+              <li>Increase confidence and mood</li>
+              <li>Better focus and clarity</li>
+              <li>Less feelings of fatigue and depression</li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  {% endif %}
+</section>
+
+{{ 'custom-landing-page.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.custom_css != blank %}
+  <style>
+    {{ section.settings.custom_css }}
+  </style>
+{% endif %}
+
+{% if section.settings.custom_js != blank %}
+  <script>
+    {{ section.settings.custom_js }}
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Landing Page",
+  "tag": "section",
+  "class": "custom-landing-page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Custom HTML"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_html",
+      "label": "Custom HTML",
+      "info": "Write your complete HTML structure here. You can use Liquid variables and Shopify objects."
+    },
+    {
+      "type": "header",
+      "content": "Custom CSS"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS",
+      "info": "Write your CSS styles here. No <style> tags needed."
+    },
+    {
+      "type": "header",
+      "content": "Custom JavaScript"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_js",
+      "label": "Custom JavaScript",
+      "info": "Write your JavaScript here. No <script> tags needed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Landing Page",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

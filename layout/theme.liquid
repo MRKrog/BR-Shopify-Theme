@@ -50,7 +50,27 @@
       .header__icon--search,
       .header__icon--account,
       .header__icon--cart {
-        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+      
+      /* Hide menu elements but keep in DOM for JS */
+      .header__drawer,
+      header-menu,
+      .header-menu,
+      .header__menu-item,
+      .menu-list {
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
       }
       
       /* Center the logo in header */
@@ -61,6 +81,20 @@
       /* Landing page enhancements */
       .hero {
         min-height: 80vh;
+      }
+      
+      /* Hero text styling for Big Richard Energy */
+      .hero h1 {
+        color: #FF6B35 !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+        margin-bottom: 20px !important;
+        font-size: 4rem !important;
+        text-transform: uppercase !important;
+      }
+      
+      .hero h1 strong {
+        color: #DC143C !important;
+        font-weight: bold !important;
       }
       
       /* Hide breadcrumbs and other navigation elements */
