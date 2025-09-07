@@ -1,0 +1,30 @@
+{% doc %}
+  Swiper.js Assets Loader
+
+  Loads Swiper.js CSS and JavaScript files once per page.
+  Prevents duplicate loading when multiple components use Swiper.
+
+  @param {boolean} load_once - Only load if not already loaded (default: true)
+
+  @example
+  {% render 'swiper-assets' %}
+{% enddoc %}
+
+{% liquid
+  assign load_once = load_once | default: true
+%}
+
+{% comment %}
+  Only load Swiper assets once per page using a global variable check
+{% endcomment %}
+
+{% unless swiper_assets_loaded and load_once %}
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@latest/swiper-bundle.min.css">
+  
+  <!-- Swiper JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@latest/swiper-bundle.min.js" defer></script>
+  
+  {% comment %}Set global flag to prevent duplicate loading{% endcomment %}
+  {% assign swiper_assets_loaded = true %}
+{% endunless %}

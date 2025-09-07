@@ -225,7 +225,29 @@
    SCROLLING ICON BANNER STYLES
    ================================ */
 
-.scrolling-icon-banner {
+.scrolling-icon-banner-section {
+  background: #ffffff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.scrolling-icon-banner-section h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: center;
+  margin: 40px 0;
+}
+
+
+ /* ================================
+   TESTIMONIALS SECTION STYLES
+   ================================ */
+     
+.testimonials-section {
   background: #ff6e04;
   background-size: cover;
   background-position: center;
@@ -240,7 +262,7 @@
 }
 
 .testimonials-header {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .testimonials-title {
@@ -254,12 +276,11 @@
 }
 
 .testimonial-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 3px solid #dc200d;
-  border-radius: 10px;
-  padding: 30px 20px;
-  margin: 20px;
-  height: 400px;
+  /* background: rgba(255, 255, 255, 0.95); */
+  border: 5px solid #dc200d;
+  padding: 30px 20px 30px 20px;
+  margin: 60px 20px 20px 20px;
+  height: 475px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -268,22 +289,23 @@
 
 .rooster-icon {
   position: absolute;
-  top: -15px;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2rem;
-  background: #ff6e04;
-  border: 2px solid #dc200d;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: 100px 100px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .testimonial-text {
-  color: #333;
+  color: #112ac0;
+  /* color: #333; */
   font-size: 0.95rem;
   line-height: 1.4;
   text-align: left;
@@ -293,8 +315,9 @@
 }
 
 .testimonial-author {
-  color: #dc200d;
-  font-weight: bold;
+  color: #112ac0;
+  /* color: #dc200d; */
+  /* font-weight: bold; */
   font-size: 0.9rem;
   text-align: right;
   margin-top: auto;
@@ -319,24 +342,146 @@
   font-weight: bold !important;
 }
 
-/* ================================
-   TESTIMONIALS SECTION STYLES
-   ================================ */
+        /* ================================
+           FORM SECTION STYLES
+           ================================ */
 
-.testimonials-section {
-  background: #ffffff;
-  color: #000000;
-  padding: 100px 0;
+        .form-section {
+          background: linear-gradient(135deg, #1a1a2e, #16213e);
+          color: white;
+          padding: 80px 0;
+          text-align: center;
+        }
+
+        .form-container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .form-heading {
+          font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+          color: #FF6B35;
+          font-size: 3rem;
+          margin-bottom: 20px;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .form-description {
+          color: white;
+          font-size: 1.2rem;
+          margin-bottom: 40px;
+          line-height: 1.6;
+        }
+
+        .klaviyo-form-embed {
+          margin: 40px 0;
+        }
+
+        /* Custom Form Styles (fallback) */
+        .custom-form {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        .form-group input {
+          width: 100%;
+          padding: 15px 20px;
+          border: 2px solid #FF6B35;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          font-size: 1.1rem;
+          transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group input:focus {
+          outline: none;
+          border-color: #dc200d;
+          background: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .form-submit {
+          background: #FF6B35;
+          color: white;
+          padding: 15px 40px;
+          border: none;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          font-weight: bold;
+          text-decoration: none;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          width: 100%;
+        }
+
+        .form-submit:hover {
+          background: #E55A2B;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+
+        /* ================================
+           VIDEO SECTION STYLES
+           ================================ */
+
+.video-section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  padding: 100px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.testimonials-section h2 {
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 15px;
+}
+
+/* ================================
+   FORM SECTION STYLES
+   ================================ */
+
+.form-section {
+  background: #ffffff;
+  padding: 100px 100px;
+}
+
+.form-section h2 {
   font-size: 4rem;
   font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
   color: #000000;
 }
@@ -430,6 +575,28 @@
   .column--left,
   .column--right {
     min-width: auto;
+  }
+
+  .form-heading {
+    font-size: 2rem;
+  }
+
+  .form-description {
+    font-size: 1rem;
+  }
+
+  .form-container {
+    padding: 0 15px;
+  }
+
+  .form-group input {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  .form-submit {
+    padding: 12px 30px;
+    font-size: 1rem;
   }
 }
 

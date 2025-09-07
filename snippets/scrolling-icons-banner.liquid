@@ -1,0 +1,339 @@
+{% doc %}
+  Scrolling Icons Banner Component
+
+  Renders a horizontal scrolling banner with numbered PNG icons.
+  Uses CSS animations for smooth infinite scrolling effect.
+
+  @param {string} background_color - Background color (default: '#ffffff')
+  @param {string} section_title - Section heading text (default: '')
+  @param {number} scroll_speed - Animation duration in seconds (default: 30)
+  @param {boolean} show_title - Show section title (default: false)
+  @param {string} icon_size - Icon size: 'small', 'medium', 'large' (default: 'medium')
+
+  @example
+  {% render 'scrolling-icons-banner' %}
+  
+  @example
+  {% render 'scrolling-icons-banner',
+       background_color: '#f5f5f5',
+       section_title: 'Our Partners',
+       show_title: true,
+       icon_size: 'large',
+       scroll_speed: 20
+    %}
+{% enddoc %}
+
+{% liquid
+  # Parameter validation and defaults
+  assign background_color = background_color | default: '#ffffff'
+  assign section_title = section_title | default: ''
+  assign scroll_speed = scroll_speed | default: 15
+  assign show_title = show_title | default: false
+  assign icon_size = icon_size | default: 'medium'
+
+  # Icon size classes
+  case icon_size
+    when 'small'
+      assign size_class = 'icon-small'
+    when 'large'
+      assign size_class = 'icon-large'
+    else
+      assign size_class = 'icon-medium'
+  endcase
+
+  # Manual icon specification - no for loop needed
+%}
+
+<div class="scrolling-icons-banner" style="background-color: {{ background_color }};">
+  {% if show_title and section_title != blank %}
+    <div class="banner-header">
+      <h2 class="banner-title">{{ section_title }}</h2>
+    </div>
+  {% endif %}
+
+  <div class="scrolling-container" id="scrolling-container-{{ section.id }}">
+    <div class="scrolling-track" id="scrolling-track-{{ section.id }}" style="animation-duration: {{ scroll_speed }}s;">
+      <!-- Original set -->
+      <div class="icon-set">
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '1.png' | asset_url }}" alt="Icon 1" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '2.png' | asset_url }}" alt="Icon 2" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '3.png' | asset_url }}" alt="Icon 3" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '4.png' | asset_url }}" alt="Icon 4" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '5.png' | asset_url }}" alt="Icon 5" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '4.png' | asset_url }}" alt="Icon 6" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '7.png' | asset_url }}" alt="Icon 7" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '8.png' | asset_url }}" alt="Icon 8" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '9.png' | asset_url }}" alt="Icon 9" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '10.png' | asset_url }}" alt="Icon 10" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '11.png' | asset_url }}" alt="Icon 11" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '12.png' | asset_url }}" alt="Icon 12" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '13.png' | asset_url }}" alt="Icon 13" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '14.png' | asset_url }}" alt="Icon 14" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '15.png' | asset_url }}" alt="Icon 15" loading="lazy">
+        </div>
+      </div>
+      
+      <!-- Duplicate set -->
+      <div class="icon-set">
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '1.png' | asset_url }}" alt="Icon 1" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '2.png' | asset_url }}" alt="Icon 2" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '3.png' | asset_url }}" alt="Icon 3" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '4.png' | asset_url }}" alt="Icon 4" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '5.png' | asset_url }}" alt="Icon 5" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '4.png' | asset_url }}" alt="Icon 6" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '7.png' | asset_url }}" alt="Icon 7" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '8.png' | asset_url }}" alt="Icon 8" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '9.png' | asset_url }}" alt="Icon 9" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '10.png' | asset_url }}" alt="Icon 10" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '11.png' | asset_url }}" alt="Icon 11" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '12.png' | asset_url }}" alt="Icon 12" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '13.png' | asset_url }}" alt="Icon 13" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '14.png' | asset_url }}" alt="Icon 14" loading="lazy">
+        </div>
+        <div class="icon-item {{ size_class }}">
+          <img src="{{ '15.png' | asset_url }}" alt="Icon 15" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.scrolling-icons-banner {
+  {% comment %} padding: 60px 0; {% endcomment %}
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+}
+
+.banner-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.banner-title {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0;
+}
+
+.scrolling-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+}
+
+.scrolling-track {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  animation: marquee linear infinite;
+}
+
+.icon-set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.icon-item {
+  flex: 0 0 auto;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.icon-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Icon sizes - allow natural width, constrain height only */
+.icon-small {
+  max-height: 80px;
+  width: auto;
+}
+
+.icon-medium {
+  max-height: 120px;
+  width: auto;
+}
+
+.icon-large {
+  max-height: 160px;
+  width: auto;
+}
+
+/* Classic marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Continuous scrolling - never pause */
+.scrolling-icons-banner .scrolling-track {
+  animation-play-state: running;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .scrolling-icons-banner {
+    padding: 40px 0;
+  }
+  
+  .banner-title {
+    font-size: 2rem;
+  }
+  
+  .icon-item {
+    margin-right: 20px;
+    padding: 15px;
+  }
+  
+  .icon-small {
+    max-height: 60px;
+    width: auto;
+  }
+  
+  .icon-medium {
+    max-height: 80px;
+    width: auto;
+  }
+  
+  .icon-large {
+    max-height: 100px;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrolling-icons-banner {
+    padding: 30px 0;
+  }
+  
+  .banner-title {
+    font-size: 1.5rem;
+  }
+  
+  .icon-item {
+    margin-right: 15px;
+    padding: 10px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.getElementById('scrolling-track-{{ section.id }}');
+  const iconSets = track.querySelectorAll('.icon-set');
+  
+  if (iconSets.length >= 2) {
+    // Measure the width of the first set after images load
+    const firstSet = iconSets[0];
+    
+    // Wait for images to load before measuring
+    const images = firstSet.querySelectorAll('img');
+    let loadedImages = 0;
+    
+    function checkAllImagesLoaded() {
+      loadedImages++;
+      if (loadedImages === images.length) {
+        // All images loaded, now measure and set precise animation
+        const firstSetWidth = firstSet.getBoundingClientRect().width;
+        
+        // Create precise animation
+        const keyframes = `
+          @keyframes marquee-precise {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(-${firstSetWidth}px); }
+          }
+        `;
+        
+        // Inject the updated keyframes
+        const style = document.createElement('style');
+        style.textContent = keyframes;
+        document.head.appendChild(style);
+        
+        // Apply the precise animation
+        track.style.animation = 'marquee-precise {{ scroll_speed }}s linear infinite';
+      }
+    }
+    
+    // Listen for image load events
+    images.forEach(img => {
+      if (img.complete) {
+        checkAllImagesLoaded();
+      } else {
+        img.addEventListener('load', checkAllImagesLoaded);
+      }
+    });
+  }
+});
+</script>

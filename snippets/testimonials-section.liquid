@@ -1,17 +1,42 @@
-{% comment %}
-  Scrolling Icon Banner Component
-  Reusable banner with scrolling icons/logos
-  Includes Swiper.js assets automatically
-{% endcomment %}
+{% doc %}
+  Testimonials Section Component
 
-<!-- Swiper Assets -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@latest/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper@latest/swiper-bundle.min.js" defer></script>
+  Renders a scrolling testimonials section with Swiper.js carousel.
+  Includes navigation arrows and automatic rotation.
 
-<div class="scrolling-icon-banner" style="background-image: url('{{ 'orange_bg.jpg' | asset_url }}');">
+  @param {string} background_image - Background image filename (default: 'orange_bg.jpg')
+  @param {string} section_title - Section heading text (default: 'THE Y-PLEX TESTIMONIALS')
+  @param {string} rooster_icon - Rooster icon filename (default: 'logo-roster-clean.png')
+  @param {boolean} show_navigation - Show navigation arrows (default: true)
+  @param {number} autoplay_delay - Autoplay delay in milliseconds (default: 2000)
+
+  @example
+  {% render 'testimonials-section' %}
+  
+  @example
+  {% render 'testimonials-section',
+       background_image: 'custom-bg.jpg',
+       section_title: 'Customer Reviews',
+       autoplay_delay: 3000
+    %}
+{% enddoc %}
+
+{% liquid
+  # Parameter validation and defaults
+  assign background_image = background_image | default: 'orange_bg.jpg'
+  assign section_title = section_title | default: 'THE Y-PLEX TESTIMONIALS'
+  assign rooster_icon = rooster_icon | default: 'logo-roster-clean.png'
+  assign show_navigation = show_navigation | default: true
+  assign autoplay_delay = autoplay_delay | default: 2000
+%}
+
+<!-- Load Swiper Assets -->
+{% render 'swiper-assets' %}
+
+<div class="testimonials-section" style="background-image: url('{{ background_image | asset_url }}');">
   <!-- Section Title -->
   <div class="testimonials-header">
-    <h2 class="testimonials-title">THE Y-PLEX TESTIMONIALS</h2>
+    <h2 class="testimonials-title">{{ section_title }}</h2>
   </div>
 
   <div class="swiper banner-swiper">
@@ -19,7 +44,7 @@
       <!-- Testimonial 1 -->
       <div class="swiper-slide">
         <div class="testimonial-card">
-          <div class="rooster-icon">🐓</div>
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
           <div class="testimonial-text">
             "I'm new to energy supplements and didn't know what to expect. I was worried I'd be too wired and was skeptical about long-term benefits. Big Richard Energy's, The Y-PLEX, completely changed the way I view supplements. I'm energized but not over amped up. I'm able to play extra games of basketball and feel great after. Mental clarity is greatly improved. I'm a believer!"
           </div>
@@ -30,7 +55,7 @@
       <!-- Testimonial 2 -->
       <div class="swiper-slide">
         <div class="testimonial-card">
-          <div class="rooster-icon">🐓</div>
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
           <div class="testimonial-text">
             "As a man on the back side of my 40's I've noticed a dip in my energy, stamina, focus and sex drive. I tried testosterone replacement and hated the needles and injections. My levels plummeted after ending the protocol, but I did not want to go back to TRT therapy. I've used Big Richard Energy's, The Y-PLEX, for two months and I'm blown away at how it's restored my energy, strength, and endurance. Also, a happy wife makes a happy life. Big Richard Energy is true to its name in the bedroom. It's great to know there's a testosterone boosting product that doesn't require injections or medical intervention."
           </div>
@@ -41,7 +66,7 @@
       <!-- Testimonial 3 -->
       <div class="swiper-slide">
         <div class="testimonial-card">
-          <div class="rooster-icon">🐓</div>
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
           <div class="testimonial-text">
             "Big Richard Energy's, The Y-PLEX, has given me such a boost of natural daily energy. It's so much easier to stay focused. With work and 3 kids in multiple sports I get overwhelmed trying to remain on top of things. Now I stay present on what I need to do in the moment and what needs to happen next."
           </div>
@@ -50,9 +75,11 @@
       </div>
     </div>
     
-    <!-- Navigation arrows -->
-    <div class="swiper-button-next banner-next"></div>
-    <div class="swiper-button-prev banner-prev"></div>
+    {% if show_navigation %}
+      <!-- Navigation arrows -->
+      <div class="swiper-button-next banner-next"></div>
+      <div class="swiper-button-prev banner-prev"></div>
+    {% endif %}
   </div>
 </div>
 
@@ -63,16 +90,18 @@
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 2000,
+        delay: {{ autoplay_delay }},
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
       speed: 1000,
       allowTouchMove: true,
+      {% if show_navigation %}
       navigation: {
         nextEl: '.banner-next',
         prevEl: '.banner-prev',
       },
+      {% endif %}
       breakpoints: {
         768: {
           slidesPerView: 1,
