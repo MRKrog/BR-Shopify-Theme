@@ -84,7 +84,6 @@
       </div>
     </div>
 
-
     <!-- Scrolling Icon Banner -->
     {% render 'scrolling-icons-banner',
          background_color: '#f8f9fa',
@@ -99,6 +98,7 @@
 
     <!-- Video Section -->
     <div class="video-section" style="background-image: url('{{ 'bg_blue.jpg' | asset_url }}');">
+      {% comment %} <h2 class="video-section-title">WATCH THE POWER</h2> {% endcomment %}
       <div class="video-container">
         <iframe 
             src="https://www.youtube.com/embed/hOgVAYpHPCc" 
@@ -106,39 +106,40 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
         </iframe>
+        <div class="video-play-overlay"></div>
       </div>
     </div>
 
-     <!-- Form Section -->
-     <div class="form-section">
-       <div class="form-container">
-         <h2 class="form-heading">JOIN THE FLOCK</h2>
-         <p class="form-description">Get exclusive updates and early access to Big Richard Energy!</p>
-         
-         <!-- Klaviyo Form Embed -->
-         <div class="klaviyo-form-embed">
-          <div class="klaviyo-form-RLVSkF"></div>
+    <!-- Form Section -->
+    <div class="form-section">
+      <div class="form-container">
+        <h2 class="form-heading">JOIN THE FLOCK</h2>
+        <p class="form-description">Get exclusive updates and early access to Big Richard Energy!</p>
+        
+        <!-- Klaviyo Form Embed -->
+        <div class="klaviyo-form-embed">
+        <div class="klaviyo-form-RLVSkF"></div>
+        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_ID"></script>
+          <!-- PASTE YOUR KLAVIYO EMBED CODE HERE -->
+          <!-- 
+          Example structure:
+          <div class="klaviyo-form-TXxXXX"></div>
           <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_ID"></script>
-           <!-- PASTE YOUR KLAVIYO EMBED CODE HERE -->
-           <!-- 
-           Example structure:
-           <div class="klaviyo-form-TXxXXX"></div>
-           <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_ID"></script>
-           -->
-         </div>
-         
-         <!-- Fallback Form (if you want a custom styled form) -->
-         <form class="custom-form" action="#" method="post" style="display: none;">
-           <div class="form-group">
-             <input type="email" name="email" placeholder="Enter your email" required>
-           </div>
-           <div class="form-group">
-             <input type="text" name="first_name" placeholder="First name" required>
-           </div>
-           <button type="submit" class="form-submit">SUBSCRIBE NOW</button>
-         </form>
-       </div>
-     </div>
+          -->
+        </div>
+        
+        <!-- Fallback Form (if you want a custom styled form) -->
+        <form class="custom-form" action="#" method="post" style="display: none;">
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="first_name" placeholder="First name" required>
+          </div>
+          <button type="submit" class="form-submit">SUBSCRIBE NOW</button>
+        </form>
+      </div>
+    </div>
     
     
   {% endif %}
