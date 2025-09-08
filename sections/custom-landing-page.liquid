@@ -30,6 +30,19 @@
 <!-- Load Swiper Assets Once for All Components -->
 {% render 'swiper-assets', load_once: true %}
 
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-content">
+    <div class="loading-logo">
+      <img src="{{ 'logo-roster-clean.png' | asset_url }}" alt="Big Richard Energy Logo" width="120" height="120">
+    </div>
+    <div class="loading-text">
+      <h2>BIG RICHARD ENERGY</h2>
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+</div>
+
 <section id="{{ section.id }}" class="custom-landing-page">
   {% if section.settings.custom_html != blank %}
     {{ section.settings.custom_html }}
@@ -158,6 +171,22 @@
 {% endif %}
 
 <script>
+  // Loading overlay functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    
+    // Hide loading overlay after 2 seconds
+    setTimeout(function() {
+      if (loadingOverlay) {
+        loadingOverlay.classList.add('fade-out');
+        // Remove from DOM after fade animation completes
+        setTimeout(function() {
+          loadingOverlay.remove();
+        }, 500); // Match the CSS transition duration
+      }
+    }, 1000);
+  });
+
   // Scroll button functionality
   document.addEventListener('DOMContentLoaded', function() {
     const scrollButton = document.getElementById('scrollToFormButton');
