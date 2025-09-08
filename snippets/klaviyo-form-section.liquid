@@ -1,0 +1,329 @@
+{% doc %}
+  Klaviyo Form Section Component
+  
+  Renders a styled form section with Klaviyo integration and fallback custom form.
+  
+  @param {string} form_heading - Main heading text (default: 'JOIN THE FLOCK')
+  @param {string} form_description - Description text (default: 'Get exclusive updates and early access to Big Richard Energy!')
+  @param {string} klaviyo_form_id - Klaviyo form ID (default: 'RLVSkF')
+  @param {string} klaviyo_company_id - Klaviyo company ID (default: 'RLVSkF')
+  @param {boolean} show_custom_form - Show fallback custom form (default: false)
+  @param {string} background_color - Background color (default: '#1a1a1a')
+  @param {string} text_color - Text color (default: '#ffffff')
+  
+  @example
+  {% render 'klaviyo-form-section' %}
+  
+  @example
+  {% render 'klaviyo-form-section',
+       form_heading: 'SIGN UP NOW',
+       form_description: 'Get the latest updates!',
+       klaviyo_form_id: 'TXxXXX',
+       klaviyo_company_id: 'YOUR_ID',
+       show_custom_form: true
+     %}
+{% enddoc %}
+
+{% liquid
+  # Parameter validation and defaults
+  assign form_heading = form_heading | default: 'GET THE Y-FACTOR'
+  assign form_description = form_description | default: 'Get the inside scoop on our upcoming launch!'
+  assign klaviyo_form_id = klaviyo_form_id | default: 'RLVSkF'
+  assign klaviyo_company_id = klaviyo_company_id | default: 'RLVSkF'
+  assign show_custom_form = show_custom_form | default: false
+  assign background_color = background_color | default: '#1a1a1a'
+  assign text_color = text_color | default: '#ffffff'
+%}
+
+<!-- Form Section -->
+<div class="form-section" style="background-color: {{ background_color }}; color: {{ text_color }};">
+  <div class="form-container">
+    <h2 class="form-heading">{{ form_heading }}</h2>
+    <p class="form-description">{{ form_description }}</p>
+    
+    <!-- Klaviyo Form Embed -->
+    <div class="klaviyo-form-embed">
+      <div class="klaviyo-form-{{ klaviyo_form_id }}"></div>
+      <script type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ klaviyo_company_id }}" defer></script>
+      
+    </div>
+    
+    <!-- Fallback Form (if enabled) -->
+    {% if show_custom_form %}
+      <form class="custom-form" action="#" method="post">
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="first_name" placeholder="First name" required>
+        </div>
+        <button type="submit" class="form-submit">SUBSCRIBE NOW</button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.form-section {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
+  {% comment %} background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); {% endcomment %}
+  position: relative;
+  {% comment %} overflow: hidden; {% endcomment %}
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  {% comment %} background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(220, 32, 13, 0.15) 0%, transparent 50%); {% endcomment %}
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(220, 32, 13, 0.1) 0%, transparent 50%);
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-heading {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  color: #FFFFFF;
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  letter-spacing: 0.025em;
+  -webkit-text-stroke: 1px #f20709;
+}
+
+.form-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6e04, #dc200d);
+  border-radius: 2px;
+}
+
+.form-description {
+  font-size: 1.3rem;
+  margin: 0 0 50px 0;
+  opacity: 0.95;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.klaviyo-form-embed {
+  margin: 50px 0;
+  position: relative;
+}
+
+/* Style the Klaviyo form elements */
+.klaviyo-form-embed .klaviyo-form {
+  border-radius: 15px !important;
+  {% comment %} background: rgba(255, 255, 255, 0.95) !important;
+  padding: 40px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  border: 3px solid #dc200d !important; {% endcomment %}
+}
+
+.klaviyo-form-embed h3 {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  color: #333 !important;
+  margin-bottom: 15px !important;
+}
+
+.klaviyo-form-embed p {
+  color: #666 !important;
+  font-size: 1rem !important;
+  margin-bottom: 25px !important;
+}
+
+.klaviyo-form-embed input[type="email"] {
+  width: 100% !important;
+  padding: 15px 20px !important;
+  height: 56px !important;
+  border: 2px solid #ddd !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  margin-bottom: 15px !important;
+  transition: all 0.3s ease !important;
+}
+
+.klaviyo-form-embed input[type="email"]:focus {
+  outline: none !important;
+  border-color: #ff6e04 !important;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.3) !important;
+}
+
+.klaviyo-form-embed button {
+  background: linear-gradient(45deg, #ff6e04, #dc200d) !important;
+  color: white !important;
+  border: none !important;
+  padding: 15px 40px !important;
+  line-height: 1.6 !important;
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif !important;
+  letter-spacing: 1px !important;
+  width: 100% !important;
+}
+
+.klaviyo-form-embed button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4) !important;
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff6e04;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-submit {
+  background: linear-gradient(45deg, #ff6e04, #dc200d);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  letter-spacing: 1px;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 80px 0;
+  }
+  
+  .form-heading {
+    font-size: 3rem;
+  }
+  
+  .form-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .form-group input {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .form-submit {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+    padding: 60px 0;
+  }
+  
+  .form-heading {
+    font-size: 2.5rem;
+  }
+  
+  .form-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .form-container {
+    padding: 0 15px;
+  }
+}
+</style>
+
+<script>
+  // Initialize Klaviyo when the script loads
+  (function() {
+    function initKlaviyo() {
+      if (window.klaviyo) {
+        try {
+          window.klaviyo.enable("onsite");
+        } catch (e) {
+          console.error('Klaviyo initialization error:', e);
+        }
+      } else {
+        // Retry if Klaviyo hasn't loaded yet
+        setTimeout(initKlaviyo, 100);
+      }
+    }
+    
+    // Try to initialize immediately
+    initKlaviyo();
+    
+    // Also try when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initKlaviyo);
+    }
+  })();
+</script>

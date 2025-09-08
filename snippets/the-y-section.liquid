@@ -1,0 +1,386 @@
+{% comment %}
+  The Y Section Snippet
+  
+  Renders the "WHAT'S YOUR Y?" section content.
+{% endcomment %}
+
+<div class="the-y-section" style="background-image: url('{{ 'bg_blue.jpg' | asset_url }}');">
+  <div class="container">
+    <div class="the-y-content">
+      
+      <!-- Top Content Grid -->
+      <div class="the-y-grid">
+
+        <!-- Left Side -->
+        <div class="the-y-vitruvian">
+
+          <div class="the-y-title">
+            <h2 class="the-y-heading">
+              WHAT'S YOUR <span class="y-highlight">Y</span>?
+            </h2>
+          </div>
+
+          <div class="vitruvian-container">
+            <div class="vitruvian-man">
+              <img src="{{ 'v_man_logo.png' | asset_url }}" alt="Vitruvian Man" class="vitruvian-image" width="300" height="300">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="the-right-side">
+          
+          <div class="the-y-bullets">
+            <div class="bullet-point">
+              <div class="bullet-icon"></div>
+              <p>Your Y chromosome produces testosterone at levels that define what it is to be a man.</p>
+            </div>
+            <div class="bullet-point">
+              <div class="bullet-icon"></div>
+              <p>Age, stress and other variables can cause these levels to nosedive and deplete your energy and masculinity.</p>
+            </div>
+            <div class="bullet-point">
+              <div class="bullet-icon"></div>
+              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone levels naturally so you can perform better: <span class="performance-highlight">PHYSICALLY • MENTALLY • SEXUALLY</span></p>
+            </div>
+          </div>
+
+          <div class="the-y-lifestyle">
+            <div class="lifestyle-images">
+               <div class="lifestyle-image">
+                 <img src="{{ 'v_image_1.jpg' | asset_url }}" alt="Baseball Field" class="lifestyle-img" width="400" height="200">
+               </div>
+              <div class="lifestyle-image">
+                <div class="lifestyle-image">
+                  <img src="{{ 'v_image_2.jpg' | asset_url }}" alt="Baseball Field" class="lifestyle-img" width="400" height="200">
+                </div>
+              </div>
+            </div>
+            <div class="the-y-tagline">
+              <h3>YOUR <span class="y-highlight">Y</span> IS EVERYTHING.</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+<style>
+.the-y-section {
+  padding: 60px 0;
+  {% comment %} background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e); {% endcomment %}
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+{% comment %} .the-y-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(220, 32, 13, 0.1) 0%, transparent 50%);
+  z-index: 1;
+} {% endcomment %}
+
+.the-y-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.the-y-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Main Title */
+.the-y-title {
+  text-align: center;
+}
+
+.the-y-heading {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  color: #FFFFFF;
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  position: relative;
+}
+
+.y-highlight {
+  color: #ffffff;
+  font-size: 7rem;
+  font-weight: 900;
+  -webkit-text-stroke: 2px #f20709;
+}
+
+/* Top Grid Layout */
+.the-y-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+}
+
+/* Bullet Points */
+.the-right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.the-y-bullets {
+}
+
+.bullet-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.bullet-icon {
+  width: 12px;
+  height: 12px;
+  background: #dc200d;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.bullet-point p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+.performance-highlight {
+  color: #dc200d;
+  font-weight: bold;
+}
+
+/* Vitruvian Man */
+.the-y-vitruvian {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vitruvian-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vitruvian-man {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vitruvian-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  {% comment %} max-width: 300px; {% endcomment %}
+  {% comment %} max-height: 300px; {% endcomment %}
+}
+
+.y-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: #dc200d;
+  z-index: 10;
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+}
+
+.vitruvian-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+}
+
+.label-mental {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.label-masculinity {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.label-physical {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.label-sexual {
+  bottom: 10px;
+  right: 20px;
+}
+
+/* Lifestyle Section */
+.the-y-lifestyle {
+  text-align: center;
+}
+
+.lifestyle-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.lifestyle-image {
+  position: relative;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #dc200d;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.lifestyle-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #dc200d;
+}
+
+.the-y-tagline h3 {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  color: #FFFFFF;
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .the-y-section {
+    padding: 80px 0;
+  }
+  
+  .the-y-heading {
+    font-size: 2.5rem;
+  }
+  
+  .y-highlight {
+    font-size: 3rem;
+  }
+  
+  .the-y-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .vitruvian-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .vitruvian-circle {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .vitruvian-square {
+    width: 170px;
+    height: 170px;
+  }
+  
+  .y-overlay {
+    font-size: 3rem;
+  }
+  
+  .lifestyle-images {
+    grid-template-columns: 1fr;
+  }
+  
+  .the-y-tagline h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .the-y-section {
+    padding: 60px 0;
+  }
+  
+  .the-y-heading {
+    font-size: 2rem;
+  }
+  
+  .y-highlight {
+    font-size: 2.5rem;
+  }
+  
+  .vitruvian-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .vitruvian-circle {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .vitruvian-square {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .y-overlay {
+    font-size: 2.5rem;
+  }
+  
+  .the-y-tagline h3 {
+    font-size: 1.5rem;
+  }
+}
+</style>

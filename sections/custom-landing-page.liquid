@@ -28,7 +28,7 @@
 {% endcomment %}
 
 <!-- Load Swiper Assets Once for All Components -->
-{% render 'swiper-assets' %}
+{% render 'swiper-assets', load_once: true %}
 
 <section id="{{ section.id }}" class="custom-landing-page">
   {% if section.settings.custom_html != blank %}
@@ -52,6 +52,21 @@
 
     <!-- Two Column Features Section -->
     <div class="features-section" id="features">
+
+      <div class="scroll-button-container">
+        <div class="scroll-button" id="scrollToFormButton">
+          <div class="scroll-button-content">
+            <div class="rooster-logo">
+              <img src="{{ 'logo-roster-clean.png' | asset_url }}" alt="Rooster Logo" width="40" height="40">
+            </div>
+            <div class="scroll-text">
+              <span class="scroll-label">GET THE Y-FACTOR</span>
+              <span class="scroll-arrow">↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
         <div class="two-column-layout">
           
@@ -63,7 +78,7 @@
               <li>Increase Free and Total Testosterone</li>
               <li>Boost Nitric Oxide levels up to 230% over baseline levels</li>
             </ul>
-            <a href="#" class="features-button">SUBSCRIBE</a>
+            <a href="#" class="features-button" id="featuresScrollButton">GET THE Y-FACTOR</a>
             <p class="features-tagline">GIVE LOW ENERGY THE BIRD!</p>
           </div>
           
@@ -93,8 +108,17 @@
          scroll_speed: 45
       %}
 
+    <!-- The Y Section -->
+    {% render 'the-y-section' %}
+
     <!-- Testimonials Section -->
-    {% render 'testimonials-section' %}
+    {% render 'testimonials-section',
+         background_image: 'orange_bg.jpg',
+         section_title: 'TESTIMONIALS',
+         rooster_icon: 'logo-roster-clean.png',
+         show_navigation: true,
+         autoplay_delay: 5000
+       %}
 
     <!-- Video Section -->
     <div class="video-section" style="background-image: url('{{ 'bg_blue.jpg' | asset_url }}');">
@@ -110,29 +134,10 @@
     </div>
 
     <!-- Form Section -->
-    {% comment %} <div class="form-section">
-      <div class="form-container">
-        <h2 class="form-heading">JOIN THE FLOCK</h2>
-        <p class="form-description">Get exclusive updates and early access to Big Richard Energy!</p>
-        
-        <!-- Klaviyo Form Embed -->
-        <div class="klaviyo-form-embed">
-        <div class="klaviyo-form-RLVSkF"></div>
-        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_ID"></script>
-        </div>
-        
-        <!-- Fallback Form (if you want a custom styled form) -->
-        <form class="custom-form" action="#" method="post" style="display: none;">
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="first_name" placeholder="First name" required>
-          </div>
-          <button type="submit" class="form-submit">SUBSCRIBE NOW</button>
-        </form>
-      </div>
-    </div> {% endcomment %}
+    {% render 'klaviyo-form-section',
+      klaviyo_form_id: 'RLVSkF',
+      klaviyo_company_id: 'XTbFQw'
+    %}
     
     
   {% endif %}
@@ -151,6 +156,39 @@
     {{ section.settings.custom_js }}
   </script>
 {% endif %}
+
+<script>
+  // Scroll button functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollButton = document.getElementById('scrollToFormButton');
+    const featuresScrollButton = document.getElementById('featuresScrollButton');
+    const formSection = document.querySelector('.form-section');
+    
+    if (!formSection) return;
+    
+    // Scroll to form when scroll button is clicked
+    if (scrollButton) {
+      scrollButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        formSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    }
+    
+    // Scroll to form when features button is clicked
+    if (featuresScrollButton) {
+      featuresScrollButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        formSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {

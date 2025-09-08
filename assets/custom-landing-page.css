@@ -84,6 +84,135 @@
 }
 
 /* ================================
+   SCROLL BUTTON STYLES
+   ================================ */
+
+.scroll-button-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* transform: translateX(-50%) translateY(-50px); */
+  z-index: 10;
+}
+
+.scroll-button {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.scroll-button:hover {
+  transform: scale(1.1);
+  animation-play-state: paused;
+}
+
+.scroll-button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #ff6e04, #dc200d);
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  padding: 10px 18px;
+  box-shadow: 
+    0 8px 20px rgba(255, 107, 53, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-button-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.floating-scroll-button:hover .scroll-button-content::before {
+  left: 100%;
+}
+
+.rooster-logo {
+  width: 35px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.rooster-logo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.scroll-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scroll-label {
+  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.scroll-arrow {
+  font-size: 1.2rem;
+  color: #ffffff;
+  animation: bounce-arrow 1.5s ease-in-out infinite;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce-arrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ================================
    FEATURES SECTION STYLES
    ================================ */
 
@@ -92,7 +221,6 @@
   color: white;
   padding: 100px 0;
   position: relative;
-  overflow: hidden;
 }
 
 .features-section::before {
@@ -152,7 +280,7 @@
   text-transform: uppercase;
   position: relative;
   letter-spacing: 0.025em;
-  -webkit-text-stroke: 2px #FF6B35;
+  -webkit-text-stroke: 1px #f20709;
 }
 
 .features-heading::after {
@@ -363,7 +491,8 @@
   text-transform: uppercase;
   position: relative;
   letter-spacing: 0.025em;
-  -webkit-text-stroke: 2px #e54f21;
+  /* -webkit-text-stroke: 2px #e54f21; */
+  -webkit-text-stroke: 1px #f20709;
 }
 
 .testimonials-title {
@@ -456,98 +585,6 @@
 }
 
 /* ================================
-    FORM SECTION STYLES
-    ================================ */
-
-.form-section {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  color: white;
-  padding: 80px 0;
-  text-align: center;
-}
-
-.form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.form-heading {
-  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
-  color: #FF6B35;
-  font-size: 3rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.form-description {
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  line-height: 1.6;
-}
-
-.klaviyo-form-embed {
-  margin: 40px 0;
-}
-
-/* Custom Form Styles (fallback) */
-.custom-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 15px 20px;
-  border: 2px solid #FF6B35;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-}
-
-.form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #dc200d;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
-}
-
-.form-submit {
-  background: #FF6B35;
-  color: white;
-  padding: 15px 40px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  width: 100%;
-}
-
-.form-submit:hover {
-  background: #E55A2B;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-}
-
-/* ================================
     VIDEO SECTION STYLES
     ================================ */
 
@@ -616,9 +653,9 @@
 .video-container {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 900px;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 42.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 
@@ -650,19 +687,6 @@
 /* ================================
    FORM SECTION STYLES
    ================================ */
-
-.form-section {
-  background: #ffffff;
-  padding: 100px 100px;
-}
-
-.form-section h2 {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-}
 
 /* ================================
    RESPONSIVE DESIGN
@@ -755,27 +779,6 @@
     min-width: auto;
   }
 
-  .form-heading {
-    font-size: 2rem;
-  }
-
-  .form-description {
-    font-size: 1rem;
-  }
-
-  .form-container {
-    padding: 0 15px;
-  }
-
-  .form-group input {
-    padding: 12px 15px;
-    font-size: 1rem;
-  }
-
-  .form-submit {
-    padding: 12px 30px;
-    font-size: 1rem;
-  }
 
   /* Testimonials Responsive */
   .testimonials-section {
