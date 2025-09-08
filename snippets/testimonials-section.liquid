@@ -24,7 +24,7 @@
 {% liquid
   # Parameter validation and defaults
   assign background_image = background_image | default: 'orange_bg.jpg'
-  assign section_title = section_title | default: 'THE Y-PLEX TESTIMONIALS'
+  assign section_title = section_title | default: 'TESTIMONIALS'
   assign rooster_icon = rooster_icon | default: 'logo-roster-clean.png'
   assign show_navigation = show_navigation | default: true
   assign autoplay_delay = autoplay_delay | default: 2000
@@ -36,6 +36,7 @@
 <div class="testimonials-section" style="background-image: url('{{ background_image | asset_url }}');">
   <!-- Section Title -->
   <div class="testimonials-header">
+    <img src="{{ 'yplex.png' | asset_url }}" height="100" width="100" alt="Y-PLEX Logo" class="yplex-logo">
     <h2 class="testimonials-title">{{ section_title }}</h2>
   </div>
 
