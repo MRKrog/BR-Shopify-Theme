@@ -43,13 +43,29 @@
   </div>
 </div>
 
+<!-- Progress Bar -->
+<div class="progress-bar">
+  <div class="progress-bar-fill" id="progressBarFill"></div>
+</div>
+
+<!-- Section Navigation -->
+<div class="section-nav" id="sectionNav">
+  <div class="nav-dot" data-section="hero" title="Hero"></div>
+  <div class="nav-dot" data-section="features" title="Features"></div>
+  <div class="nav-dot" data-section="icons" title="Trusted By"></div>
+  <div class="nav-dot" data-section="the-y" title="The Y"></div>
+  <div class="nav-dot" data-section="testimonials" title="Testimonials"></div>
+  <div class="nav-dot" data-section="video" title="Video"></div>
+  <div class="nav-dot" data-section="form" title="Sign Up"></div>
+</div>
+
 <section id="{{ section.id }}" class="custom-landing-page">
   {% if section.settings.custom_html != blank %}
     {{ section.settings.custom_html }}
   {% else %}
     
     <!-- Hero Section -->
-    <div class="hero-section">
+    <div class="hero-section" id="hero">
       
       <div class="hero-background">
         <img src="{{ 'hero_bg_main.jpg' | asset_url }}" alt="Hero Background" width="1920" height="1080">
@@ -109,32 +125,58 @@
           </div>
           
         </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <div class="trust-badge-title">Clinically Tested</div>
+            <div class="trust-badge-text">3rd Party Lab<br>Verified</div>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-title">FDA Compliant</div>
+            <div class="trust-badge-text">GMP Certified<br>Facility</div>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-title">Natural Formula</div>
+            <div class="trust-badge-text">No Artificial<br>Additives</div>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-title">Money Back</div>
+            <div class="trust-badge-text">60 Day<br>Guarantee</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Scrolling Icon Banner -->
-    {% render 'scrolling-icons-banner',
-         background_color: '#f8f9fa',
-         section_title: 'TRUSTED BY THE BEST',
-         show_title: false,
-         icon_size: 'large',
-         scroll_speed: 45
-      %}
+    <div id="icons">
+      {% render 'scrolling-icons-banner',
+           background_color: '#f8f9fa',
+           section_title: 'TRUSTED BY THE BEST',
+           show_title: false,
+           icon_size: 'large',
+           scroll_speed: 45
+        %}
+    </div>
 
     <!-- The Y Section -->
-    {% render 'the-y-section' %}
+    <div id="the-y">
+      {% render 'the-y-section' %}
+    </div>
 
     <!-- Testimonials Section -->
-    {% render 'testimonials-section',
-         background_image: 'orange_bg.jpg',
-         section_title: 'TESTIMONIALS',
-         rooster_icon: 'logo-roster-clean.png',
-         show_navigation: true,
-         autoplay_delay: 5000
-       %}
+    <div id="testimonials">
+      {% render 'testimonials-section',
+           background_image: 'orange_bg.jpg',
+           section_title: 'TESTIMONIALS',
+           rooster_icon: 'logo-roster-clean.png',
+           show_navigation: true,
+           autoplay_delay: 5000
+         %}
+    </div>
 
     <!-- Video Section -->
-    <div class="video-section" style="background-image: url('{{ 'bg_blue.jpg' | asset_url }}');">
+    <div class="video-section" id="video" style="background-image: url('{{ 'bg_blue.jpg' | asset_url }}');">
       {% comment %} <h2 class="video-section-title">WATCH THE POWER</h2> {% endcomment %}
       <div class="video-container">
         <iframe 
@@ -147,10 +189,12 @@
     </div>
 
     <!-- Form Section -->
-    {% render 'klaviyo-form-section',
-      klaviyo_form_id: 'RLVSkF',
-      klaviyo_company_id: 'XTbFQw'
-    %}
+    <div id="form">
+      {% render 'klaviyo-form-section',
+        klaviyo_form_id: 'RLVSkF',
+        klaviyo_company_id: 'XTbFQw'
+      %}
+    </div>
     
     
   {% endif %}
@@ -216,6 +260,101 @@
         });
       });
     }
+  });
+
+  // Hero parallax effect
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroBackground = document.querySelector('.hero-background');
+    
+    if (heroBackground) {
+      let ticking = false;
+      
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5; // Adjust speed (0.5 = half speed)
+        
+        heroBackground.style.transform = `translate3d(0, ${parallax}px, 0)`;
+        ticking = false;
+      }
+      
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+      
+      window.addEventListener('scroll', requestTick, { passive: true });
+    }
+  });
+
+  // Progress bar and section navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const progressBarFill = document.getElementById('progressBarFill');
+    const sectionNav = document.getElementById('sectionNav');
+    const navDots = document.querySelectorAll('.nav-dot');
+    const sections = ['hero', 'features', 'icons', 'the-y', 'testimonials', 'video', 'form'];
+    
+    let ticking = false;
+    
+    function updateProgress() {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      if (progressBarFill) {
+        progressBarFill.style.width = scrollPercent + '%';
+      }
+      
+      // Update active section
+      let activeSection = 'hero';
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2) {
+            activeSection = sections[i];
+            break;
+          }
+        }
+      }
+      
+      // Update nav dots
+      navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('data-section') === activeSection) {
+          dot.classList.add('active');
+        }
+      });
+      
+      ticking = false;
+    }
+    
+    function requestProgressTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }
+    
+    window.addEventListener('scroll', requestProgressTick, { passive: true });
+    
+    // Nav dot click handlers
+    navDots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        const sectionId = this.getAttribute('data-section');
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Initial update
+    updateProgress();
   });
 </script>
 
