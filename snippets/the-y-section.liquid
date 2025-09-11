@@ -15,9 +15,7 @@
         <div class="the-y-vitruvian">
 
           <div class="the-y-title">
-            <h2 class="the-y-heading">
-              WHAT'S YOUR <span class="y-highlight">Y</span>?
-            </h2>
+            <img src="{{ 'title_1.png' | asset_url }}" alt="What's Your Y?" class="the-y-heading-image" width="300" height="100">
           </div>
 
           <div class="vitruvian-container">
@@ -41,7 +39,7 @@
             </div>
             <div class="bullet-point">
               <div class="bullet-icon"></div>
-              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone levels naturally so you can perform better: <span class="performance-highlight">PHYSICALLY • MENTALLY • SEXUALLY</span></p>
+              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone levels naturally so you can perform better: <span class="performance-highlight"><span class="red-bullet">•</span> PHYSICALLY <span class="red-bullet">•</span> MENTALLY <span class="red-bullet">•</span> SEXUALLY</span></p>
             </div>
           </div>
 
@@ -57,7 +55,7 @@
               </div>
             </div>
             <div class="the-y-tagline">
-              <h3>YOUR <span class="y-highlight">Y</span> IS EVERYTHING.</h3>
+              <img src="{{ 'title_2.png' | asset_url }}" alt="Your Y Is Everything" class="the-y-tagline-image" width="400" height="80">
             </div>
           </div>
 
@@ -108,23 +106,11 @@
   text-align: center;
 }
 
-.the-y-heading {
-  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
-  color: #FFFFFF;
-  font-size: 4rem;
-  margin: 0;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  position: relative;
-}
-
-.y-highlight {
-  color: #ffffff;
-  font-size: 7rem;
-  font-weight: 900;
-  -webkit-text-stroke: 2px #f20709;
+.the-y-heading-image {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Top Grid Layout */
@@ -165,11 +151,20 @@
   line-height: 1.6;
   color: #ffffff;
   margin: 0;
+  font-weight: bold;
 }
 
 .performance-highlight {
+  color: #ffffff;
+  font-weight: bold;
+  display: block;
+  line-height: 1;
+}
+
+.red-bullet {
   color: #dc200d;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 /* Vitruvian Man */
@@ -289,15 +284,11 @@
   border: 2px solid #dc200d;
 }
 
-.the-y-tagline h3 {
-  font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
-  color: #FFFFFF;
-  font-size: 3rem;
-  margin: 0;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
+.the-y-tagline-image {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Responsive design */
@@ -306,12 +297,8 @@
     padding: 80px 0;
   }
   
-  .the-y-heading {
-    font-size: 2.5rem;
-  }
-  
-  .y-highlight {
-    font-size: 3rem;
+  .the-y-heading-image {
+    max-width: 90%;
   }
   
   .the-y-grid {
@@ -327,8 +314,8 @@
     grid-template-columns: 1fr;
   }
   
-  .the-y-tagline h3 {
-    font-size: 2rem;
+  .the-y-tagline-image {
+    max-width: 90%;
   }
 }
 
@@ -337,8 +324,8 @@
     padding: 25px 0;
   }
 
-  .the-y-heading {
-    font-size: 3rem;
+  .the-y-heading-image {
+    max-width: 85%;
   }
   
   .the-y-bullets {
