@@ -585,6 +585,26 @@
 
 
  /* ================================
+   FOOTER SECTION STYLES
+   ================================ */
+
+footer.section-wrapper,
+footer.section-wrapper .section-background,
+footer.section-wrapper .section {
+  background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e) !important;
+}
+
+.footer-utilities__text {
+  color: white !important;
+}
+
+.footer-utilities__text a {
+  color: white !important;
+}
+
+
+
+/* ================================
    TESTIMONIALS SECTION STYLES
    ================================ */
      

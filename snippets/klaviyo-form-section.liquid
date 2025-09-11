@@ -26,7 +26,7 @@
 
 {% liquid
   # Parameter validation and defaults
-  assign form_heading = form_heading | default: 'GET THE Y-FACTOR'
+  assign form_heading = form_heading | default: 'Your Y Is Everything'
   assign form_description = form_description | default: 'Get the inside scoop on our upcoming launch!'
   assign klaviyo_form_id = klaviyo_form_id | default: 'RLVSkF'
   assign klaviyo_company_id = klaviyo_company_id | default: 'RLVSkF'
@@ -87,7 +87,7 @@
 .form-heading {
   font-family: 'DIN Condensed', 'Arial Narrow', sans-serif;
   color: #FFFFFF;
-  font-size: 3.2rem;
+  font-size: 3.8rem;
   margin-bottom: 25px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   font-weight: bold;
@@ -110,12 +110,12 @@
 }
 
 .form-description {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin: 0 0 50px 0;
-  opacity: 0.95;
+  opacity: 1;
   line-height: 1.6;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .klaviyo-form-embed {
