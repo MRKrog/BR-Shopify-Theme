@@ -27,7 +27,7 @@
   assign section_title = section_title | default: 'TESTIMONIALS'
   assign rooster_icon = rooster_icon | default: 'logo-roster-clean.png'
   assign show_navigation = show_navigation | default: true
-  assign autoplay_delay = autoplay_delay | default: 2000
+  assign autoplay_delay = autoplay_delay | default: 1500
 %}
 
 <!-- Load Swiper Assets -->
@@ -74,6 +74,39 @@
           <div class="testimonial-author">- JT W. 47 y/o, Manassas, VA</div>
         </div>
       </div>
+
+      <!-- Testimonial 4 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
+          <div class="testimonial-text">
+            "Very noticeable jump in energy. Every other energy supplement made me feel the dreaded 'crash' ... no such crash with Big Richard Energy's, The Y-PLEX. It also prevented me from getting 'brain fog' towards the end of the day. I was able to stay on work calls longer and I had a huge uptick in my daily productivity. Absolutely amazing overall!"
+          </div>
+          <div class="testimonial-author">- Chris K. 46 y/o, Basking Ridge, NJ</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
+          <div class="testimonial-text">
+            "Can't argue with results. 25% increase in testosterone! Great energy, stamina and mental focus. Great men's formula! Will buy!"
+          </div>
+          <div class="testimonial-author">- Doug M. 72 y/o Asheville, NC</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="swiper-slide">
+        <div class="testimonial-card">
+          <div class="rooster-icon" style="background-image: url('{{ rooster_icon | asset_url }}');"></div>
+          <div class="testimonial-text">
+            "Great sustained energy without the annoying jitters. I power through the day without hitting a wall and it improved my performance in the gym. It revitalized me."
+          </div>
+          <div class="testimonial-author">- Kevin D. 42 y/o, Rutherford, NJ</div>
+        </div>
+      </div>
     </div>
     
     {% if show_navigation %}
@@ -86,6 +119,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded deeezzzzz');
     new Swiper('.banner-swiper', {
       slidesPerView: 'auto',
       spaceBetween: 30,
@@ -95,7 +129,7 @@
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
-      speed: 1000,
+      speed: 600,
       allowTouchMove: true,
       {% if show_navigation %}
       navigation: {

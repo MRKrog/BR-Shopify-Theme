@@ -27,7 +27,7 @@
   # Parameter validation and defaults
   assign background_color = background_color | default: '#ffffff'
   assign section_title = section_title | default: ''
-  assign scroll_speed = scroll_speed | default: 15
+  assign scroll_speed = scroll_speed | default: 8
   assign show_title = show_title | default: false
   assign icon_size = icon_size | default: 'medium'
 
@@ -57,98 +57,44 @@
       <!-- Original set -->
       <div class="icon-set">
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '1.png' | asset_url }}" alt="Icon 1" loading="lazy" width="100" height="100">
+          <img src="{{ '1-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '2.png' | asset_url }}" alt="Icon 2" loading="lazy" width="100" height="100">
+          <img src="{{ '2-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '3.png' | asset_url }}" alt="Icon 3" loading="lazy" width="100" height="100">
+          <img src="{{ '3-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '4.png' | asset_url }}" alt="Icon 4" loading="lazy" width="100" height="100">
+          <img src="{{ '4-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '5.png' | asset_url }}" alt="Icon 5" loading="lazy" width="100" height="100">
+          <img src="{{ '5-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '4.png' | asset_url }}" alt="Icon 6" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '7.png' | asset_url }}" alt="Icon 7" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '8.png' | asset_url }}" alt="Icon 8" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '9.png' | asset_url }}" alt="Icon 9" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '10.png' | asset_url }}" alt="Icon 10" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '11.png' | asset_url }}" alt="Icon 11" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '12.png' | asset_url }}" alt="Icon 12" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '13.png' | asset_url }}" alt="Icon 13" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '14.png' | asset_url }}" alt="Icon 14" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '15.png' | asset_url }}" alt="Icon 15" loading="lazy" width="100" height="100">
+          <img src="{{ '6-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
       </div>
       
       <!-- Duplicate set -->
       <div class="icon-set">
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '1.png' | asset_url }}" alt="Icon 1" loading="lazy" width="100" height="100">
+          <img src="{{ '1-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '2.png' | asset_url }}" alt="Icon 2" loading="lazy" width="100" height="100">
+          <img src="{{ '2-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '3.png' | asset_url }}" alt="Icon 3" loading="lazy" width="100" height="100">
+          <img src="{{ '3-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '4.png' | asset_url }}" alt="Icon 4" loading="lazy" width="100" height="100">
+          <img src="{{ '4-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '5.png' | asset_url }}" alt="Icon 5" loading="lazy" width="100" height="100">
+          <img src="{{ '5-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
         <div class="icon-item {{ size_class }}">
-          <img src="{{ '4.png' | asset_url }}" alt="Icon 6" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '7.png' | asset_url }}" alt="Icon 7" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '8.png' | asset_url }}" alt="Icon 8" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '9.png' | asset_url }}" alt="Icon 9" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '10.png' | asset_url }}" alt="Icon 10" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '11.png' | asset_url }}" alt="Icon 11" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '12.png' | asset_url }}" alt="Icon 12" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '13.png' | asset_url }}" alt="Icon 13" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '14.png' | asset_url }}" alt="Icon 14" loading="lazy" width="100" height="100">
-        </div>
-        <div class="icon-item {{ size_class }}">
-          <img src="{{ '15.png' | asset_url }}" alt="Icon 15" loading="lazy" width="100" height="100">
+          <img src="{{ '6-icons.jpg' | asset_url }}" alt="Icon" loading="lazy" height="100" width="auto">
         </div>
       </div>
     </div>
@@ -157,10 +103,12 @@
 
 <style>
 .scrolling-icons-banner {
-  {% comment %} padding: 60px 0; {% endcomment %}
   overflow: hidden;
   position: relative;
   background: #000000;
+  border-bottom: 4px solid;
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg,rgba(255, 109, 4, 0.95), #dc200d) 1;
 }
 
 .banner-header {
@@ -181,7 +129,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  {% comment %} background: #000000; {% endcomment %}
+  background: #000000;
 }
 
 .scrolling-track {
@@ -199,32 +147,23 @@
 
 .icon-item {
   flex: 0 0 auto;
-  margin-right: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .icon-item img {
-  max-width: 100%;
-  max-height: 100%;
+  height: 100px;
+  width: auto;
   object-fit: contain;
 }
 
-/* Icon sizes - allow natural width, constrain height only */
-.icon-small {
-  max-height: 80px;
-  width: auto;
-}
-
-.icon-medium {
-  max-height: 120px;
-  width: auto;
-}
-
-.icon-large {
-  max-height: 160px;
+/* Icon sizes - all images use fixed 100px height with auto width */
+.icon-small img,
+.icon-medium img,
+.icon-large img {
+  height: 100px;
   width: auto;
 }
 
@@ -250,18 +189,10 @@
     padding: 15px;
   }
   
-  .icon-small {
-    max-height: 60px;
-    width: auto;
-  }
-  
-  .icon-medium {
-    max-height: 80px;
-    width: auto;
-  }
-  
-  .icon-large {
-    max-height: 100px;
+  .icon-small img,
+  .icon-medium img,
+  .icon-large img {
+    height: 80px;
     width: auto;
   }
 }
