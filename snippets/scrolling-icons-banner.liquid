@@ -195,6 +195,11 @@
     height: 80px;
     width: auto;
   }
+  
+  /* Faster animation on mobile */
+  .scrolling-track {
+    animation-duration: {{ scroll_speed | divided_by: 2 }}s !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -241,8 +246,10 @@ document.addEventListener('DOMContentLoaded', function() {
         style.textContent = keyframes;
         document.head.appendChild(style);
         
-        // Apply the precise animation
-        track.style.animation = 'marquee-precise {{ scroll_speed }}s linear infinite';
+        // Apply the precise animation with mobile speed adjustment
+        const isMobile = window.innerWidth <= 768;
+        const speed = isMobile ? {{ scroll_speed | divided_by: 2 }} : {{ scroll_speed }};
+        track.style.animation = `marquee-precise ${speed}s linear infinite`;
       }
     }
     
