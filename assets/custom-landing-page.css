@@ -1005,7 +1005,7 @@ footer.section-wrapper .section {
   }
 
   .scroll-button-container {
-    top: -1.5%;
+    top: -1%;
   }
 
   .scroll-button-content {
@@ -1040,7 +1040,11 @@ footer.section-wrapper .section {
 
   .features-tagline {
     margin-top: 15px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .features-tagline img {
+    margin-right: 0px;
   }
 
   /* Testimonials Small Mobile */

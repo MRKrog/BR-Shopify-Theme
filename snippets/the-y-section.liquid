@@ -39,8 +39,13 @@
             </div>
             <div class="bullet-point">
               <div class="bullet-icon"></div>
-              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone and nitric oxide levels naturally so you can perform better: <span class="performance-highlight"><span class="red-bullet">•</span> PHYSICALLY <span class="red-bullet">•</span> MENTALLY <span class="red-bullet">•</span> SEXUALLY</span></p>
+              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone and nitric oxide levels naturally so you can perform better:</p>
             </div>
+            <span class="performance-highlight">
+              <span><span class="red-bullet">•</span> <span class="performance-highlight-text">PHYSICALLY</span></span>
+              <span><span class="red-bullet">•</span> <span class="performance-highlight-text">MENTALLY</span></span> 
+              <span><span class="red-bullet">•</span> <span class="performance-highlight-text">SEXUALLY</span></span>
+            </span>
           </div>
 
           <div class="the-y-lifestyle">
@@ -141,11 +146,16 @@
   font-weight: bold;
 }
 
+.performance-highlight-text {
+  font-size: 1rem;
+}
+
 .performance-highlight {
   color: #ffffff;
   font-weight: bold;
-  display: block;
-  line-height: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .red-bullet {
@@ -284,6 +294,9 @@
   .the-y-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .performance-highlight-text {
+    font-size: 0.9em;
   }
 }
 
