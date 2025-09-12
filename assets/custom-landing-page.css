@@ -732,6 +732,10 @@ footer.section-wrapper .section {
   position: absolute !important;
 }
 
+.banner-next svg, .banner-prev svg {
+  height: 70% !important;
+}
+
 .banner-next:hover, .banner-prev:hover {
   background: rgba(220, 32, 13, 1) !important;
   transform: scale(1.1);
@@ -1231,11 +1235,11 @@ footer.section-wrapper .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .label-image {
-  max-width: 220px;
+  max-width: 200px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
