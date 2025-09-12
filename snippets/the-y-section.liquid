@@ -39,7 +39,7 @@
             </div>
             <div class="bullet-point">
               <div class="bullet-icon"></div>
-              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone levels naturally so you can perform better: <span class="performance-highlight"><span class="red-bullet">•</span> PHYSICALLY <span class="red-bullet">•</span> MENTALLY <span class="red-bullet">•</span> SEXUALLY</span></p>
+              <p>Big Richard Energy: The Y-PLEX helps boost your testosterone and nitric oxide levels naturally so you can perform better: <span class="performance-highlight"><span class="red-bullet">•</span> PHYSICALLY <span class="red-bullet">•</span> MENTALLY <span class="red-bullet">•</span> SEXUALLY</span></p>
             </div>
           </div>
 
@@ -77,19 +77,6 @@
   overflow: hidden;
 }
 
-{% comment %} .the-y-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(220, 32, 13, 0.1) 0%, transparent 50%);
-  z-index: 1;
-} {% endcomment %}
-
 .the-y-section .container {
   position: relative;
   z-index: 2;
@@ -106,7 +93,8 @@
 }
 
 .the-y-heading-image {
-  max-width: 90%;
+  max-width: 520px;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -184,14 +172,15 @@
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .vitruvian-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  {% comment %} max-width: 300px; {% endcomment %}
-  {% comment %} max-height: 300px; {% endcomment %}
+  max-width: 600px;
 }
 
 .y-overlay {
@@ -290,6 +279,14 @@
   margin: 0 auto;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .the-y-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .the-y-section {
@@ -298,11 +295,6 @@
   
   .the-y-heading-image {
     max-width: 90%;
-  }
-  
-  .the-y-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
   }
   
   .y-overlay {
@@ -315,6 +307,22 @@
   
   .the-y-tagline-image {
     max-width: 90%;
+  }
+
+  .the-y-bullets {
+    padding: 0 30px;
+  }
+
+  .lifestyle-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lifestyle-img {
+    width: 70%;
+    height: auto;
   }
 }
 

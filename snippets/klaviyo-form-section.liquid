@@ -26,7 +26,7 @@
 
 {% liquid
   # Parameter validation and defaults
-  assign form_heading = form_heading | default: 'Your Y Is Everything'
+  assign form_heading = form_heading | default: 'Your Y Is Everything.'
   assign form_description = form_description | default: 'Get the inside scoop on our upcoming launch!'
   assign klaviyo_form_id = klaviyo_form_id | default: 'RLVSkF'
   assign klaviyo_company_id = klaviyo_company_id | default: 'RLVSkF'
@@ -38,7 +38,8 @@
 <!-- Form Section -->
 <div class="form-section" style="background-color: {{ background_color }}; color: {{ text_color }};">
   <div class="form-container">
-    <h2 class="form-heading">{{ form_heading }}</h2>
+    <img src="{{ 'title_2.png' | asset_url }}" alt="Your Y Is Everything" class="the-y-tagline-image" width="400" height="80">
+    <div class="orange-divider"></div>
     <p class="form-description">{{ form_description }}</p>
     
     <!-- Klaviyo Form Embed -->
@@ -60,6 +61,22 @@
   {% comment %} background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); {% endcomment %}
   position: relative;
   {% comment %} overflow: hidden; {% endcomment %}
+}
+
+.the-y-tagline-image {
+  max-width: 495px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.orange-divider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 109, 4, 0.95), #dc200d);
+  margin: 20px auto 30px auto;
+  border-radius: 2px;
 }
 
 .form-section::before {
@@ -281,7 +298,7 @@
   }
   
   .form-description {
-    font-size: .9rem;
+    font-size: 1.3rem;
     margin-bottom: 0px;
   }
 
