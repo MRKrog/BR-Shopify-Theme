@@ -1205,6 +1205,12 @@ footer.section-wrapper .section {
   flex-wrap: wrap;
 }
 
+@media (max-width: 1205px) {
+  .trust-badges {
+    gap: 10px;
+  }
+}
+
 /* Responsive for trust badges */
 @media (max-width: 1145px) {
   .trust-badges {
@@ -1235,13 +1241,13 @@ footer.section-wrapper .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 20px; */
 }
 
 .label-image {
   max-width: 200px;
   height: auto;
   border-radius: 10px;
+  border: 2px solid rgba(255, 107, 53, 0.3);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
