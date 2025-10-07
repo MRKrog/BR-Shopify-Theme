@@ -27,7 +27,7 @@
   assign section_title = section_title | default: 'TESTIMONIALS'
   assign rooster_icon = rooster_icon | default: 'logo-roster-clean.png'
   assign show_navigation = show_navigation | default: true
-  assign autoplay_delay = autoplay_delay | default: 1500
+  assign autoplay_delay = autoplay_delay | default: 3500
 %}
 
 <!-- Load Swiper Assets -->
@@ -128,7 +128,7 @@
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
-      speed: 600,
+      speed: 4000,
       allowTouchMove: true,
       {% if show_navigation %}
       navigation: {
