@@ -173,12 +173,15 @@
   font-size: 1rem !important;
   margin-bottom: 5px !important;
   transition: all 0.3s ease !important;
+  color: white !important;
+  background-color: transparent !important;
 }
 
 .klaviyo-form-embed input[type="email"]:focus {
   outline: none !important;
   border-color: #ff6e04 !important;
   box-shadow: 0 0 10px rgba(255, 107, 53, 0.3) !important;
+  color: white !important;
 }
 
 .klaviyo-form-embed input[type="text"] {
@@ -190,12 +193,33 @@
   font-size: 1rem !important;
   margin-bottom: 5px !important;
   transition: all 0.3s ease !important;
+  color: white !important;
+  background-color: transparent !important;
 }
 
 .klaviyo-form-embed input[type="text"]:focus {
   outline: none !important;
   border-color: #ff6e04 !important;
   box-shadow: 0 0 10px rgba(255, 107, 53, 0.3) !important;
+  color: white !important;
+}
+
+/* Placeholder text styling */
+.klaviyo-form-embed input[type="email"]::placeholder,
+.klaviyo-form-embed input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.klaviyo-form-embed input[type="email"]::-webkit-input-placeholder,
+.klaviyo-form-embed input[type="text"]::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.klaviyo-form-embed input[type="email"]::-moz-placeholder,
+.klaviyo-form-embed input[type="text"]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
 }
 
 .klaviyo-form-embed button {
